@@ -41,5 +41,5 @@ const dataSchema = new mongoose.Schema({
     }
 });
 
-const dataModel = mongoose.model('DataRecord', dataSchema);
-export default dataModel;
+const DataRecord = mongoose.model('DataRecord', dataSchema);
+export default DataRecord;
