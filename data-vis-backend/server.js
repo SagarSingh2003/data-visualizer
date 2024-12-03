@@ -3,6 +3,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import DatabaseService from "./utils/dbService.js"
+import ApiResponse from "./utils/ApiReponses.js";
 
 dotenv.config();
 
@@ -19,6 +20,10 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/webhook" , webhook);
+
+app.get("/" , (req ,res) => {
+    new ApiResponse(res).successful();
+})
 
 app.listen(PORT, () => {
   console.log("app listening on port", PORT);
