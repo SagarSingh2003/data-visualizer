@@ -1,5 +1,5 @@
-import dbService from "../utils/dbService";
-import DataRecord from "../model/chartData";
+import dbService from "../utils/dbService.js";
+import DataRecord from "../model/chartData.js";
 
 const webhookController = {
 
