@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
-DatabaseService.connect(db_uri);
+DatabaseService.connect(db_uri.toString());
 
 app.use(express.json());
 
