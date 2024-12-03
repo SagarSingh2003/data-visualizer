@@ -13,20 +13,27 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
-export const db_conn = await DatabaseService.connect(db_uri.toString());
 
 app.use(express.json());
 
 app.use(cors());
 
-app.use("/webhook" , webhook);
-
 app.get("/" , (req ,res) => {
-    return new ApiResponse(res).successful();
+  return new ApiResponse(res).successful();
 })
 
-app.listen(PORT, () => {
-  console.log("app listening on port", PORT);
-});
+app.use("/webhook" , webhook)
+
+export let dbconn;
+
+(async () => {
+
+  dbconn =  await DatabaseService.connect(db_uri.toString());
+  app.listen(PORT, () => {
+    console.log("app listening on port", PORT);
+  });
+})();
+
+
 
 export default app;
