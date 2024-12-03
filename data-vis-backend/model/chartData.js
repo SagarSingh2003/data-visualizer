@@ -41,4 +41,5 @@ const dataSchema = new mongoose.Schema({
     }
 });
 
-export default dataModel = mongoose.model('DataRecord', dataSchema);
+const dataModel = mongoose.model('DataRecord', dataSchema);
+export default dataModal;
