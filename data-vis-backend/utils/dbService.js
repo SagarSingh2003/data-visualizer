@@ -29,7 +29,6 @@ class DatabaseService {
   async insertMany(model, data) {
     try {
       const newDocument = await model.insertMany(data);
-      await newDocument.save();
       return newDocument;
     } catch (error) {
       console.error('Error creating document:', error);
