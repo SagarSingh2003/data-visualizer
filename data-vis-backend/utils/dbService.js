@@ -26,9 +26,9 @@ class DatabaseService {
     console.log('MongoDB disconnected');
   }
 
-  async create(model, data) {
+  async insertMany(model, data) {
     try {
-      const newDocument = new model(data);
+      const newDocument = await model.insertMany(data);
       await newDocument.save();
       return newDocument;
     } catch (error) {
@@ -68,9 +68,9 @@ class DatabaseService {
     }
   }
 
-  async delete(model, id) {
+  async deleteMany(model) {
     try {
-      const result = await model.findByIdAndDelete(id);
+      const result = await model.deleteMany({});
       return result;
     } catch (error) {
       console.error('Error deleting document:', error);

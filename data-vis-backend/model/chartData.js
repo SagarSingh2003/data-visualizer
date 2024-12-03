@@ -3,41 +3,41 @@ import mongoose from "mongoose"
 const dataSchema = new mongoose.Schema({
     day: {
         type: Date,
-        required: true
+        required: false
     },
     age: {
         type: String,
         enum: ['15-25', '>25'],
-        required: true
+        required: false
     },
     gender: {
         type: String,
         enum: ['Male', 'Female'],
-        required: true
+        required: false
     },
     A: {
         type: Number,
-        required: true
+        required: false
     },
     B: {
         type: Number,
-        required: true
+        required: false
     },
     C: {
         type: Number,
-        required: true
+        required: false
     },
     D: {
         type: Number,
-        required: true
+        required: false
     },
     E: {
         type: Number,
-        required: true
+        required: false
     },
     F: {
         type: Number,
-        required: true
+        required: false
     }
 });
 
