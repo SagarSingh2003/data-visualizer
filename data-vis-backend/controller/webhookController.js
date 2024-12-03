@@ -1,6 +1,6 @@
 import dbService from "../utils/dbService.js";
 import DataRecord from "../model/chartData.js";
-import ApiResponse from "../utils/ApiReponses";
+import ApiResponse from "../utils/ApiReponses.js";
 
 const webhookController = {
 
