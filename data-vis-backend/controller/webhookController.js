@@ -7,8 +7,7 @@ const webhookController = {
     updateData : async (req , res) => {
         console.log(req.body)
 
-        console.log(await dbService.find(dataModel))
-        return new ApiResponse(res).successful()
+        // return new ApiResponse(res).successful()
     }
 }
 
