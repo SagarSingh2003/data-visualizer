@@ -22,7 +22,7 @@ app.use(cors());
 app.use("/webhook" , webhook);
 
 app.get("/" , (req ,res) => {
-    new ApiResponse(res).successful();
+    return new ApiResponse(res).successful();
 })
 
 app.listen(PORT, () => {
