@@ -39,7 +39,7 @@ class DatabaseService {
 
   async find(model, query = {}, projection = {}) {
     try {
-      const result = await model.find(query, projection, options);
+      const result = await model.find(query, projection);
       return result;
     } catch (error) {
       console.error('Error finding documents:', error);
