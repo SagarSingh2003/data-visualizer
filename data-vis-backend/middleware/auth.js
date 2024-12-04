@@ -8,7 +8,7 @@ dotenv.config();
 const privateKey = process.env.Private_key;
 
 const authMiddleware = async (req, res, next) => {
-    console.log("reaching rhere")
+
   const access_token = req.cookies.access_token;
 
   if (access_token) {
@@ -45,5 +45,4 @@ const authMiddleware = async (req, res, next) => {
   }
 };
 
-
-export default authMiddleware
+export default authMiddleware;

@@ -88,7 +88,7 @@ class DatabaseService {
     }
   }
 
-  async deleteByQuery(model  , query){
+  async deleteByQuery(model, query) {
     try {
       const result = await model.deleteOne(query);
       return result;
