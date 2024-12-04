@@ -7,6 +7,7 @@ import DatabaseService from "./utils/dbService.js"
 import ApiResponse from "./utils/ApiReponses.js";
 import cookieParser from "cookie-parser";
 import authMiddleware from "./middleware/auth.js";
+import shareRoute from "./route/shareRoute.js";
 
 dotenv.config();
 
@@ -36,6 +37,9 @@ app.use("/auth" , authRoute)
 
 app.use(authMiddleware);
 
+// protected routes** 
+
+app.use("/share" , shareRoute);
 
 export let dbconn;
 
