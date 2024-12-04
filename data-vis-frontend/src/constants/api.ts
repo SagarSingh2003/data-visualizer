@@ -1,0 +1,1 @@
+export const api = "https://data-visualizer-zeta.vercel.app"

@@ -12,7 +12,13 @@ const privateKey = process.env.Private_key;
 
 const emailSchema = z.string().email({ message: "Invalid email address" });
 const usernameSchema = z.string().min(2, { message: "username too short" });
-const passwordSchema = z.coerce.string();
+const passwordSchema = z.coerce.string()
+const authCookieOptions = {
+  maxAge: 900000,
+  httpOnly: true,
+  sameSite: "None",
+  secure : true
+}
 
 const authController = {
   signUp: async (req, res) => {
@@ -119,10 +125,7 @@ const authController = {
 
     if (user_cookie) {
       //HAVE TO SEND A COOKIE TO THE USER BROWSER***************
-      res.cookie("access_token", user_cookie.access_token, {
-        maxAge: 900000,
-        httpOnly: true,
-      });
+      res.cookie("access_token", user_cookie.access_token, authCookieOptions);
       return new ApiResponse(res).successful("user signup successful", {
         token: user_cookie.access_token,
       });
@@ -143,11 +146,7 @@ const authController = {
       });
       console.log("created new entry....");
 
-      res.cookie("access_token", token, {
-        maxAge: 900000,
-        httpOnly: true,
-        sameSite: "strict",
-      });
+      res.cookie("access_token", token, authCookieOptions);
 
       return new ApiResponse(res).successful("user signin successful", {
         token: token,

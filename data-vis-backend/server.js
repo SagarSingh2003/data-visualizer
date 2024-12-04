@@ -34,11 +34,12 @@ app.use("/auth", authRoute);
 
 app.use("/chartData", chartDataRoute);
 
+app.use("/share", shareRoute);
+
 app.use(authMiddleware);
 
 // protected routes**
 
-app.use("/share", shareRoute);
 
 export let dbconn;
 
