@@ -54,7 +54,7 @@ const shareController = {
 
     try {
       await dbService.create(SharedData, data);
-      return new ApiResponse(res).successful();
+      return new ApiResponse(res).successful(`/${uuid}`);
     } catch (err) {
       return new ApiResponse(res).internalServerError();
     }
