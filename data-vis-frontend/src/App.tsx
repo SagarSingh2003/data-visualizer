@@ -23,17 +23,20 @@ function App() {
       if(PermissionForStoringCookies){
           
           if(Gender){
-            document.cookie = `gender=${Gender}`
+            document.cookie = `gender=${Gender};SameSite=None, Secure`
           }
 
           if(Age){
-            document.cookie = `age=${JSON.stringify(age)}`
+            document.cookie = `age=${JSON.stringify(age)};SameSite=None, Secure`
           }
 
           if(DateRange){
-            document.cookie = `date_range=${JSON.stringify(DateRange)}`
+            document.cookie = `date_range=${JSON.stringify(DateRange)};SameSite=None; Secure;`
           }
-        
+          
+          if(PermissionForStoringCookies){
+            document.cookie = `permission_for_storing_cookie=${PermissionForStoringCookies}`
+          }
       }
 
   } , [Gender , Age , DateRange , PermissionForStoringCookies]);

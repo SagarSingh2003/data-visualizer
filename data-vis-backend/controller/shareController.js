@@ -38,6 +38,9 @@ const shareController = {
 
     let data = {
       uuid: uuid,
+      date_range: "",
+      age: "",
+      gender: ""
     };
 
     if (date_range) {

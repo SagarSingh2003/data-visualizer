@@ -45,13 +45,43 @@ const Dashboard: React.FC = () => {
 
   
 
+  function getCookie(cookieName:string) {
 
+    let cookieValue = document.cookie;
+  
+    let cookieArray = cookieValue.split(';');
+  
+    for (let i = 0; i < cookieArray.length; i++) {
+  
+      let cookiePair = cookieArray[i].trim();
+  
+      if (cookiePair.startsWith(cookieName + '=')) {
+  
+        return decodeURIComponent(cookiePair.substring(cookieName.length + 1));
+  
+      }
+  
+    }
+  
+    return null;
+  
+  } 
+
+  useEffect(() => {
+    const cookieVal = getCookie("permission_for_storing_cookie")
+
+    if(cookieVal){
+      setAskPermissionForStoringCookies(Boolean(cookieVal))
+    }
+  } , [])
 
   return (
     
 
     <div>
       {permissionForStoringCookies === null ? 
+
+        
         <section className="popup">
             <div>
                 <h3>Permission ?</h3>

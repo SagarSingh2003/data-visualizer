@@ -1,0 +1,94 @@
+.background-pattern {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    overflow: hidden;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.large {
+    width: 76.7vw; /* Converted from pixels */
+    height: 151.2vh; /* Converted from pixels */
+    background-color: #3c00dd;
+    top: -23.3vh; /* Converted from pixels */
+    left: -17.7vw; /* Converted from pixels */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 
+                0 6px 20px rgba(0, 0, 0, 0.19);
+}
+
+.medium {
+    width: 60vw; /* Set width */
+    height: calc(60 * (151.2 / 76.7))vh; /* Maintain ratio */
+    background-color: #3500cb;
+    top: calc(-118.2 * (60 / 151.2))vh; /* Adjust top based on new height */
+    left: calc(-35.4vw); /* Adjusted for responsiveness */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 
+                0 6px 20px rgba(0, 0, 0, 0.19);
+}
+
+.small {
+    width: 40vw; /* Set width */
+    height: calc(40 * (151.2 / 76.7))vh; /* Maintain ratio */
+    background-color: #3300c1;
+    top: calc(11.6vh); /* Adjusted for responsiveness */
+    left: calc(-47.2vw); /* Adjusted for responsiveness */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 
+                0 6px 20px rgba(0, 0, 0, 0.19);
+}
+
+.auth-wrapper-div {
+    height: calc(100vh); /* Full viewport height */
+    width: calc(100vw); /* Full viewport width */
+}
+
+/* Media Queries for further adjustments on smaller screens */
+@media (max-width:768px) {
+    .large {
+        width: calc(60vw);
+        height: calc(60 * (151.2 / 76.7))vh; /* Maintain ratio */
+        top: calc(-15vh);
+        left: calc(-25vw);
+    }
+
+    .medium {
+        width: calc(45vw);
+        height: calc(45 * (151.2 / 76.7))vh; /* Maintain ratio */
+        top: calc(-10vh);
+        left: calc(-20vw);
+    }
+
+    .small {
+        width: calc(30vw);
+        height: calc(30 * (151.2 / 76.7))vh; /* Maintain ratio */
+        top: calc(-5vh);
+        left: calc(-15vw);
+    }
+}
+
+@media (max-width:480px) {
+    .large {
+        width: calc(80vw);
+        height: calc(80 * (151.2 / 76.7))vh; /* Maintain ratio */
+        top: calc(-20vh);
+        left: calc(-40vw);
+    }
+
+    .medium {
+        width: calc(60vw);
+        height: calc(60 * (151.2 / 76.7))vh; /* Maintain ratio */
+        top: calc(-15vh);
+        left: calc(-30vw);
+    }
+
+    .small {
+        width: calc(40vw);
+        height: calc(40 * (151.2 / 76.7))vh; /* Maintain ratio */
+        top: calc(-10vh);
+        left: calc(-20vw);
+    }
+}

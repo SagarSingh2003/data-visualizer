@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Bar, Line } from "react-chartjs-2";
+import React, { useEffect} from "react";
+import { Bar} from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -110,13 +110,10 @@ const Dashboard: React.FC = () => {
 
   console.log(featureData);
   const  barData = [featureData["A"] , featureData["B"] , featureData["C"] , featureData["D"] , featureData["E"] , featureData["F"]];
-  const  labels = ["A" , "B" , "C" , "D" , "E" , "F"]; // Dummy data for the bar chart
+  const  labels = ["A" , "B" , "C" , "D" , "E" , "F"]; 
 
   const handleBarClick = (barIndex: number) => {
-    setSelectedBar(labels[barIndex]); // Update selected feature
-    // Load trend data for the selected feature (Replace with API call)
-    // const newTrendData = [Math.random() * 20, Math.random() * 20, Math.random() * 20];
-    // setTrendData(newTrendData);
+    setSelectedBar(labels[barIndex]); 
   };
 
   if(!chartData){

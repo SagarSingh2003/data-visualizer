@@ -115,7 +115,7 @@ const LineChart: React.FC<LineChartProps> = () => {
       style={{ width: "100%", margin: "20px auto" }}
       onDoubleClick={handleDoubleClick} // Trigger zoom reset
     >
-      <Line id="chart" data={lineChartData} options={lineChartOptions} />
+      <Line id="chart" data={lineChartData} options={lineChartOptions as any} />
     </div>
   );
 };
