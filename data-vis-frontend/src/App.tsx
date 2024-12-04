@@ -21,9 +21,12 @@ function App() {
   useEffect(() => {
 
       if(PermissionForStoringCookies){
-          
+        const date = new Date();
+        date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000)); 
+        const expires = "expires=" + date.toUTCString();
+
           if(Gender){
-            document.cookie = `gender=${Gender};SameSite=None, Secure`
+            document.cookie = `gender=${Gender}; ${expires};SameSite=None; Secure`
           }
 
           if(Age){
@@ -31,7 +34,7 @@ function App() {
           }
 
           if(DateRange){
-            document.cookie = `date_range=${JSON.stringify(DateRange)};SameSite=None; Secure;`
+            document.cookie = `date_range=${JSON.stringify(DateRange)};SameSite=None; Secure`
           }
           
           if(PermissionForStoringCookies){

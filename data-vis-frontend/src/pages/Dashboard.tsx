@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import {v4 as uuidv4} from "uuid";
 import {
   Chart as ChartJS,
@@ -25,11 +25,7 @@ import { api } from "../constants/api";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, PointElement, LineElement, Title, Tooltip, Legend);
 
-interface DateRange {
-  startDate: Date;
-  endDate: Date;
-  key: string;
-}
+
 
 const Dashboard: React.FC = () => {
 
@@ -134,7 +130,8 @@ const Dashboard: React.FC = () => {
               } , {
                 headers : {
                   "Content-Type" : "application/json"
-                }
+                },
+                withCredentials : true
               })
 
               console.log(res);

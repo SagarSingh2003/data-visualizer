@@ -9,7 +9,7 @@ const DateRangePicker = () => {
   let [end, setend] = useRecoilState(endDate);
 
   console.log("newDateRange is : ", useRecoilValue(dateRange));
-  const [ranges, setRanges] = useState({
+  const [ranges, _] = useState({
     "Today Only": [moment(start), moment(end)],
     "Yesterday Only": [
       moment(start).subtract(1, "days"),

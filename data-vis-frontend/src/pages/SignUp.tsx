@@ -1,5 +1,3 @@
-// src/Signup.js
-import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
@@ -22,7 +20,7 @@ const Signup = () => {
             .required('Password is required'),
     });
 
-    const handleSubmit = (values) => {
+    const handleSubmit = (values : any) => {
         console.log('Form data', values);
         // Handle form submission (e.g., send data to server)
     };
