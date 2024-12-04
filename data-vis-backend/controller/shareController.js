@@ -36,6 +36,8 @@ const shareController = {
     const age = req.cookies.age;
     const gender = req.cookies.gender;
 
+
+    console.log("cookies",req.cookies);
     let data = {
       uuid: uuid,
       date_range: "",
