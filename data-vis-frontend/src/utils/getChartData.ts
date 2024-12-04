@@ -8,7 +8,9 @@ export const getChartData = async () => {
         
         const API = `${ api }/chartData`.trim()
 
-        const api_response = await axios.get(API)
+        const api_response = await axios.get(API , {
+            withCredentials : true
+        })
         
         console.log(api_response);
 
