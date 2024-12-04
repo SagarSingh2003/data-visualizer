@@ -9,6 +9,7 @@ const webhookController = {
         const data = req.body?.updatedData
         await dbService.deleteMany(DataRecord);
         await dbService.insertMany(DataRecord , data)
+        console.log("update successful");
         return new ApiResponse(res).successful()
     
     }

@@ -2,8 +2,11 @@ import webhook from "./route/webhooks.js";
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import authRoute from "./route/auth.js"
 import DatabaseService from "./utils/dbService.js"
 import ApiResponse from "./utils/ApiReponses.js";
+import cookieParser from "cookie-parser";
+import authMiddleware from "./middleware/auth.js";
 
 dotenv.config();
 
@@ -13,16 +16,26 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
+app.use(cookieParser());
 
 app.use(express.json());
 
 app.use(cors());
 
+app.use("/webhook" , webhook)
+
+
+
 app.get("/" , (req ,res) => {
   return new ApiResponse(res).successful();
 })
 
-app.use("/webhook" , webhook)
+
+
+app.use("/auth" , authRoute)
+
+app.use(authMiddleware);
+
 
 export let dbconn;
 
