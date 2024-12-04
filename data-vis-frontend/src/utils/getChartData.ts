@@ -9,7 +9,10 @@ export const getChartData = async () => {
         const API = `${ api }/chartData`.trim()
 
         const api_response = await axios.get(API , {
-            withCredentials : true
+            withCredentials : true,
+            headers : {
+                'Access-Control-Allow-Origin' : '*'
+            }
         })
         
         console.log(api_response);
