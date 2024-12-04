@@ -21,7 +21,9 @@ const app = express();
 
 app.use(cors({
   credentials: true,
-  origin : ["http://localhost:5173" , "https://data-visualizer-nhkw.vercel.app/"]
+  origin : ["http://localhost:5173" , "https://data-visualizer-nhkw.vercel.app/"],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'access-control-allow-origin']
 }));
 
 app.use(cookieParser());
