@@ -75,6 +75,7 @@ const Dashboard: React.FC = () => {
   } , [])
 
 
+  console.log('gender cookie: ' , `gender=${getCookie("gender")}`)
 
   return (
     
@@ -136,7 +137,6 @@ const Dashboard: React.FC = () => {
                 headers : {
                   "Content-Type" : "application/json",
                   "Cookie" :   `gender=${getCookie("gender")}`
-
                 },
                 withCredentials : true
               })
