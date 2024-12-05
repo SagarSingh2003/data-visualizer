@@ -54,6 +54,7 @@ const Shared = () => {
                 setError(res.data);
             }
 
+            
        }catch(err){
             console.log("error occured here" , err);
        }
