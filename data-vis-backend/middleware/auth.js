@@ -41,7 +41,7 @@ const authMiddleware = async (req, res, next) => {
       return new ApiResponse(res).unauthorized("Token verification failed");
     }
   } else {
-    res.redirect("/signup");
+    return new ApiResponse(res).unauthorized("Please sign up first");
   }
 };
 
