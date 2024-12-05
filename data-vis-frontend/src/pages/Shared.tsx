@@ -32,6 +32,7 @@ const Shared = () => {
             withCredentials : true
         }).then((res) => {
             
+            console.log("response", res);
             console.log(res.status);
             if(res.status === 401){
                 navigate("/signup")
