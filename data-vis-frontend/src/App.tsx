@@ -31,7 +31,7 @@ function App() {
           }
 
           if(Age){
-            document.cookie = `age=${JSON.stringify(age)}; ${expires} SameSite=none; Secure`
+            document.cookie = `age=${JSON.stringify(Age)}; ${expires} SameSite=none; Secure`
           }
 
           if(DateRange){
