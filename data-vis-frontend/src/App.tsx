@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
-import SignUp from "./pages/SignUp";
-import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignIn";
+import SignIn from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard";
 import { useEffect } from "react";
 import { gender } from "./atoms/gender";
@@ -38,7 +38,7 @@ function App() {
           }
           
           if(PermissionForStoringCookies){
-            document.cookie = `permission_for_storing_cookie=${PermissionForStoringCookies}`
+            document.cookie = `permission_for_storing_cookie=${PermissionForStoringCookies}; ${expires}`
           }
       }
 
