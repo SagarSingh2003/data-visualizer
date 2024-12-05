@@ -28,7 +28,7 @@ const Shared = () => {
 
     const getPrefData  = async () =>{
         
-       try{
+
             const res = await axios.get(api + `/share/${id}` , {
                 withCredentials : true
             })
@@ -53,13 +53,6 @@ const Shared = () => {
             }else{
                 setError(res.data);
             }
-
-            
-       }catch(err){
-            console.log("error occured here" , err);
-       }
-            
-            
        
     }
 
