@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
-import SignUp from "./pages/SignIn";
-import SignIn from "./pages/SignUp";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
 import Dashboard from "./pages/Dashboard";
 import { useEffect } from "react";
 import { gender } from "./atoms/gender";
