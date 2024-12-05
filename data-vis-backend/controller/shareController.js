@@ -37,12 +37,12 @@ const shareController = {
     const gender = req.body.gender;
 
 
-    console.log("cookies",req.cookies);
+    console.log("cookies",req.cookies.gender);
     let data = {
       uuid: uuid,
-      date_range: "",
-      age: "",
-      gender: ""
+      date_range: date_range?.toString(),
+      age: age?.toString(),
+      gender: gender?.toString()
     };
 
     if (date_range) {
