@@ -48,8 +48,6 @@ app.use("/chartData", chartDataRoute);
 
 app.use("/share", shareRoute);
 
-app.use(authMiddleware);
-
 // protected routes**
 
 
