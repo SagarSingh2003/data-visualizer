@@ -26,7 +26,7 @@ app.use(cors({
   credentials: true,
   origin : "https://data-visualizer-nhkw.vercel.app",
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'access-control-allow-origin']
+  allowedHeaders: ['Content-Type', 'Authorization', 'access-control-allow-origin' , 'set-cookie']
 }));
 
 
