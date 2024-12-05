@@ -1,1 +1,1 @@
-export const api = "https://data-visualizer-zeta.vercel.app"
+export const api = "https://data-visualizer-khle.vercel.app"
