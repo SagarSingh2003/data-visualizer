@@ -19,6 +19,9 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 
+
+app.use(cookieParser());
+
 app.use(cors({
   credentials: true,
   origin : "https://data-visualizer-nhkw.vercel.app",
@@ -26,7 +29,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization', 'access-control-allow-origin']
 }));
 
-app.use(cookieParser());
+
 
 app.use(express.json());
 
