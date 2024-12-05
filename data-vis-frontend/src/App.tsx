@@ -30,11 +30,11 @@ function App() {
           }
 
           if(Age){
-            document.cookie = `age=${JSON.stringify(age)}; SameSite=None; Secure`
+            document.cookie = `age=${JSON.stringify(age)}; ${expires} SameSite=None; Secure`
           }
 
           if(DateRange){
-            document.cookie = `date_range=${JSON.stringify(DateRange)}; SameSite=None; Secure`
+            document.cookie = `date_range=${JSON.stringify(DateRange)}; ${expires} SameSite=None; Secure`
           }
           
           if(PermissionForStoringCookies){
