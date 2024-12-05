@@ -7,9 +7,11 @@ import { useSetRecoilState } from "recoil";
 import { endDate, startDate } from "../atoms/dateRange";
 import { age } from "../atoms/age";
 import { gender } from "../atoms/gender";
+import { useParams } from "react-router-dom";
 
-const Shared = ({id} : {id : string}) => {
+const Shared = () => {
 
+    const {id} = useParams();
 
     const setStartDate = useSetRecoilState(startDate)
 

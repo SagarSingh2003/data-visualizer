@@ -9,6 +9,7 @@ import { age } from "./atoms/age";
 import { dateRange } from "./atoms/dateRange";
 import { askPermissionForStoringCookies } from "./atoms/askPermissionForStoringCookies";
 import { useRecoilValue } from "recoil";
+import Shared from "./pages/Shared";
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           <Route index element={<Dashboard/>}/>
           <Route path="/signin" element={<SignIn/>}/>
           <Route path="/signup" element={<SignUp/>}/>
+          <Route path="/:id" element={<Shared />} />
       </Routes>
     </BrowserRouter>
   )
