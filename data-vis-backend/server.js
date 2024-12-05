@@ -40,6 +40,7 @@ app.get("/", (req, res) => {
   return new ApiResponse(res).successful();
 });
 
+
 app.use("/auth", authRoute);
 
 app.use("/chartData", chartDataRoute);
