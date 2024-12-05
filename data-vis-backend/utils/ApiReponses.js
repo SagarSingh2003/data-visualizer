@@ -13,34 +13,34 @@ class ApiResponse {
     });
   }
 
-  badRequest(message = "Bad Request") {
+  badRequest(message ) {
     return this.res
       .status(responses.badRequest.status)
-      .json(responses.badRequest.message);
+      .json(message || responses.badRequest.message);
   }
 
-  unauthorized(message = "Unauthorized") {
+  unauthorized(message ) {
     return this.res
       .status(responses.unauthorized.status)
-      .json(responses.unauthorized.message);
+      .json(message || responses.unauthorized.message);
   }
 
-  forbidden(message = "Forbidden") {
+  forbidden(message ) {
     return this.res
       .status(responses.forbidden.status)
-      .json(responses.forbidden.message);
+      .json(message || responses.forbidden.message);
   }
 
-  notFound(message = "Not Found") {
+  notFound(message) {
     return this.res
       .status(responses.notFound.status)
-      .json(responses.notFound.message);
+      .json(message || responses.notFound.message);
   }
 
-  internalServerError(message = "Internal Server Error") {
+  internalServerError(message ) {
     return this.res
       .status(responses.internalServerError.status)
-      .json(responses.internalServerError.message);
+      .json(message || responses.internalServerError.message);
   }
 
   customError(status, message) {
