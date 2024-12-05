@@ -22,7 +22,7 @@ const Signin = () => {
         console.log('Form data', values);
         // Handle form submission (e.g., send data to server)
 
-        axios.post(api + "/signin" , {
+        axios.post(api + "/auth/signin" , {
             email : values.email,
             password : values.password
         }, {
