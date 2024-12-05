@@ -11,6 +11,8 @@ const authMiddleware = async (req, res, next) => {
 
   const access_token = req.cookies.access_token;
 
+  console.log(access_token);
+  
   if (access_token) {
     try {
       const decodedData = jwt.verify(access_token, privateKey);
