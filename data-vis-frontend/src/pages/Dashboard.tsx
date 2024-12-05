@@ -74,6 +74,8 @@ const Dashboard: React.FC = () => {
     }
   } , [])
 
+
+
   return (
     
 
@@ -133,7 +135,8 @@ const Dashboard: React.FC = () => {
               } , {
                 headers : {
                   "Content-Type" : "application/json",
-                  "Cookie" : document.cookie
+                  "Cookie" :   `gender=${getCookie("gender")}`
+
                 },
                 withCredentials : true
               })
