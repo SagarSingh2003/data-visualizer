@@ -14,7 +14,7 @@ const Shared = () => {
 
     const {id} = useParams();
 
-    const router= useNavigate();
+    const navigate= useNavigate();
 
     const setStartDate = useSetRecoilState(startDate)
 
@@ -32,8 +32,9 @@ const Shared = () => {
             withCredentials : true
         }).then((res) => {
             
+            console.log(res.status);
             if(res.status === 401){
-                router('/signup')
+                navigate("/signup")
             }else if(res.status === 200){
                 console.log(res , "response");
                 setAge(res?.data?.age)
