@@ -24,7 +24,7 @@ app.use(cookieParser());
 
 app.use(cors({
   credentials: true,
-  origin : "https://data-visualizer-nhkw.vercel.app",
+  origin : "https://data-visualizer-coral.vercel.app",
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'access-control-allow-origin' , 'set-cookie'],
   exposedHeaders: ['set-cookie']
@@ -40,6 +40,7 @@ app.use("/webhook", webhook);
 app.get("/", (req, res) => {
   return new ApiResponse(res).successful();
 });
+
 
 
 app.use("/auth", authRoute);
