@@ -23,6 +23,7 @@ import { askPermissionForStoringCookies } from "../atoms/askPermissionForStoring
 import axios from "axios";
 import { api } from "../constants/api";
 import { chartData } from "../atoms/chartData";
+import { currUuid } from "../atoms/currUuid";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -36,7 +37,7 @@ const Dashboard: React.FC = () => {
     return <>Loading data...</>
   }
 
-
+  const [curruuid , setCurrUuid] = useRecoilState(currUuid)
   const [ageFilter, setAgeFilter] = useRecoilState<"15-25" | ">25"| null>(age);
   const [genderFilter, setGenderFilter] = useRecoilState<"Male" | "Female"| null>(gender);
   const [permissionForStoringCookies , setAskPermissionForStoringCookies] = useRecoilState<true | false | null>(askPermissionForStoringCookies)
@@ -149,10 +150,11 @@ const Dashboard: React.FC = () => {
                 withCredentials : true
               })
 
-              console.log(res);
+              setCurrUuid(res.data.msg);
           }}>
               share
           </button>
+          {curruuid ? curruuid : null}
       </div>
       <div>
         <BarChart />
