@@ -45,18 +45,6 @@ const shareController = {
       gender: gender?.toString()
     };
 
-    if (date_range) {
-      data.date_range = date_range;
-    }
-
-    if (age) {
-      data.age = age;
-    }
-
-    if (gender) {
-      data.gender = gender;
-    }
-
     try {
       await dbService.create(SharedData, data);
       return new ApiResponse(res).successful(`${uuid}`);
