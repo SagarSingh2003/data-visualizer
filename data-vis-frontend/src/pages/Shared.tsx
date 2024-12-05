@@ -26,11 +26,11 @@ const Shared = () => {
 
     const setError = useSetRecoilState(error)
 
-    const getPrefData  = () =>{
+    const getPrefData  = async () =>{
         
-        axios.get(api + `/share/${id}` , {
+       const res = await axios.get(api + `/share/${id}` , {
             withCredentials : true
-        }).then((res) => {
+        })
             
             console.log("response", res);
             console.log(res.status);
@@ -46,7 +46,7 @@ const Shared = () => {
                 setError(error);
             }
             
-        })
+       
     }
 
 
