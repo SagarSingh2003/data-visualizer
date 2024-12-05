@@ -1,6 +1,8 @@
 
+import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { api } from "../constants/api";
 
 const SignupForm = () => {
   const initialValues = {
@@ -22,8 +24,20 @@ const SignupForm = () => {
       .required("Password is required"),
   });
 
-  const onSubmit = (values) => {
+  const onSubmit = (values : any ) => {
     console.log("Form data", values);
+
+    axios.post(api + "/auth/signup" , {
+        username : values.username,
+        email : values.email,
+        password : values.password
+    }, {
+        withCredentials: true,
+        headers : {
+            "Content-Type" : "application/json"
+        }
+    })
+    
   };
 
   return (

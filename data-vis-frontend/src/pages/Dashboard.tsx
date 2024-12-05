@@ -132,7 +132,8 @@ const Dashboard: React.FC = () => {
                   uuid : uuidv4() 
               } , {
                 headers : {
-                  "Content-Type" : "application/json"
+                  "Content-Type" : "application/json",
+                  "Cookie" : document.cookie
                 },
                 withCredentials : true
               })
