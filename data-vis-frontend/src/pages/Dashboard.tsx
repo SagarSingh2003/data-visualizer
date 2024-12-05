@@ -16,12 +16,13 @@ import "react-date-range/dist/theme/default.css"; // Default theme
 import LineChart from "../ui/Components/LineChart";
 import BarChart from "../ui/Components/BarChart";
 import DateRangePicker from "../ui/Components/DateRangePicker";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { age } from "../atoms/age";
 import { gender } from "../atoms/gender";
 import { askPermissionForStoringCookies } from "../atoms/askPermissionForStoringCookies";
 import axios from "axios";
 import { api } from "../constants/api";
+import { chartData } from "../atoms/chartData";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -29,9 +30,11 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, PointElement, LineEleme
 
 const Dashboard: React.FC = () => {
 
+  const chartdata  = useRecoilValue(chartData);
  
- 
- 
+  if(!chartdata){
+    return <>Loading data...</>
+  }
 
 
   const [ageFilter, setAgeFilter] = useRecoilState<"15-25" | ">25"| null>(age);

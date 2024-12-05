@@ -27,8 +27,15 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, PointElement, LineEleme
 
 const Dashboard: React.FC = () => {
 
+
+
+
+
   const chartdata = useRecoilValue(chartData);
 
+  if(!chartdata){
+    return <>Loading data...</>
+  }
 
   console.log("chart data is : " ,chartdata);
 
@@ -41,12 +48,12 @@ const Dashboard: React.FC = () => {
    function calculateDefaultStartAndEndDate(){
 
         setStartDate(moment(new Date(chartdata[0]?.day)))
-        setEndDate(moment(new Date(chartdata[chartdata.length - 1]?.day)))
+        setEndDate(moment(new Date(chartdata[chartdata?.length - 1]?.day)))
         setFiltered(chartdata)
     }
 
   useEffect(() => {
-    if(chartdata.length != 0){
+    if(chartdata?.length != 0){
         calculateDefaultStartAndEndDate()
     }
   } , [])
@@ -80,7 +87,7 @@ const Dashboard: React.FC = () => {
         setFiltered(filtereddata)
   }else if( Age && Gender){
 
-    const filtereddata = chartdata.filter((data : any) => {
+    const filtereddata = chartdata?.filter((data : any) => {
         return ((data.age.trim() === Age.trim()) && data.gender.trim() === Gender.trim()) 
     })
 
@@ -116,9 +123,7 @@ const Dashboard: React.FC = () => {
     setSelectedBar(labels[barIndex]); 
   };
 
-  if(!chartData){
-    return <>Loading data...</>
-  }
+
 
 
   console.log(selectedbar);
