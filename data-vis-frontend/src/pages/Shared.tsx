@@ -32,7 +32,8 @@ const Shared = () => {
             withCredentials : true
         })
             
-            console.log("response", res);
+            console.log("responseeell")
+            console.log("response*******************", res);
             console.log("status " , res.status);
             if(res.status === 401){
                 navigate("/signup")
@@ -52,7 +53,7 @@ const Shared = () => {
 
     useEffect(() => {
         getPrefData()
-    })
+    } , [])
 
   return (
     <div>
