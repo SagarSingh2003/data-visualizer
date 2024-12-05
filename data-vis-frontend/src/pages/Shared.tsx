@@ -51,6 +51,7 @@ const Shared = () => {
 
        }catch(err){
             console.log("error occured here" , err);
+            navigate("/signup")
        }
             
             
