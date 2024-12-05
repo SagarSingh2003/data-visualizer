@@ -138,7 +138,7 @@ const Dashboard: React.FC = () => {
               age : getCookie("age"),
               date_range : getCookie("date_range")
             }
-            
+            console.log(data);
              const res = await  axios.post(`${api}/share` , {
                   uuid : uuidv4(),
                   ...data
