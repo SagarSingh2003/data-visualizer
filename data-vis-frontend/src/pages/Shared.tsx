@@ -33,7 +33,7 @@ const Shared = () => {
         })
             
             console.log("response", res);
-            console.log(res.status);
+            console.log("status " , res.status);
             if(res.status === 401){
                 navigate("/signup")
             }else if(res.status === 200){
