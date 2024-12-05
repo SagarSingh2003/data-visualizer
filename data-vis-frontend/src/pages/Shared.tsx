@@ -28,10 +28,12 @@ const Shared = () => {
 
     const getPrefData  = async () =>{
         
-       const res = await axios.get(api + `/share/${id}` , {
-            withCredentials : true
-        })
-            
+       try{
+            const res = await axios.get(api + `/share/${id}` , {
+                withCredentials : true
+            })
+
+
             console.log("responseeell")
             console.log("response*******************", res);
             console.log("status " , res.status);
@@ -44,8 +46,13 @@ const Shared = () => {
                 setStartDate(JSON.parse(res?.data?.data_range?.start))
                 setEndDate(JSON.parse(res?.data?.data_range?.end))
             }else{
-                setError(error);
+                setError(res.data);
             }
+
+       }catch(err){
+            console.log(err);
+       }
+            
             
        
     }
