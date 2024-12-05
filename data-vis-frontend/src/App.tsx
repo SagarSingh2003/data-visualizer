@@ -26,7 +26,7 @@ function App() {
         const expires = "expires=" + date.toUTCString();
 
           if(Gender){
-            document.cookie = `gender=${Gender}; ${expires}; SameSite=None; Secure`
+            document.cookie = `gender=${Gender}; ${expires}; SameSite=None; Secure;`
           }
 
           if(Age){
