@@ -26,15 +26,15 @@ function App() {
         const expires = "expires=" + date.toUTCString();
 
           if(Gender){
-            document.cookie = `gender=${Gender}; ${expires}; SameSite=None; Secure;`
+            document.cookie = `gender=${Gender}; ${expires}; SameSite=none; Secure;`
           }
 
           if(Age){
-            document.cookie = `age=${JSON.stringify(age)}; ${expires} SameSite=None; Secure`
+            document.cookie = `age=${JSON.stringify(age)}; ${expires} SameSite=none; Secure`
           }
 
           if(DateRange){
-            document.cookie = `date_range=${JSON.stringify(DateRange)}; ${expires} SameSite=None; Secure`
+            document.cookie = `date_range=${JSON.stringify(DateRange)}; ${expires} SameSite=none; Secure`
           }
           
           if(PermissionForStoringCookies){

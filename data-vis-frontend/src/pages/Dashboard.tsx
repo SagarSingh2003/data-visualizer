@@ -66,6 +66,12 @@ const Dashboard: React.FC = () => {
   
   } 
 
+  const data = {
+      gender: getCookie("gender"),
+      age : getCookie("age"),
+      date_range : getCookie("date_range")
+  }
+
   useEffect(() => {
     const cookieVal = getCookie("permission_for_storing_cookie")
 
@@ -132,11 +138,11 @@ const Dashboard: React.FC = () => {
       <div>
           <button onClick={ async () => {
              const res = await  axios.post(`${api}/share` , {
-                  uuid : uuidv4() 
+                  uuid : uuidv4(),
+                  ...data
               } , {
                 headers : {
                   "Content-Type" : "application/json",
-                  "Cookie" :   `gender=${getCookie("gender")};`
                 },
                 withCredentials : true
               })
