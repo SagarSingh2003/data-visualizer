@@ -32,9 +32,9 @@ const shareController = {
   share: async (req, res) => {
     const uuid = req.body.uuid;
 
-    const date_range = req.cookies.date_range;
-    const age = req.cookies.age;
-    const gender = req.cookies.gender;
+    const date_range = req.body.date_range;
+    const age = req.body.age;
+    const gender = req.body.gender;
 
 
     console.log("cookies",req.cookies);
