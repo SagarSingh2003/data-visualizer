@@ -1,6 +1,6 @@
 import AuthLayout from "../ui/Components/Auth"
 
-const SignIn = () => {
+const SignUp = () => {
     return (
         <AuthLayout>
             <span>SignIn</span>
@@ -8,4 +8,4 @@ const SignIn = () => {
     )
 }
 
-export default SignIn
+export default SignUp
