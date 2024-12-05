@@ -4,7 +4,7 @@ import LineChart from "../ui/Components/LineChart";
 import axios from "axios";
 import { api } from "../constants/api";
 import { useSetRecoilState } from "recoil";
-import { dateRange, endDate, startDate } from "../atoms/dateRange";
+import { endDate, startDate } from "../atoms/dateRange";
 import { age } from "../atoms/age";
 import { gender } from "../atoms/gender";
 
