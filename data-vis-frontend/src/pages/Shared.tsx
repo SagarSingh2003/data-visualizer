@@ -43,8 +43,8 @@ const Shared = () => {
                 console.log(res , "response");
                 setAge(res?.data?.age)
                 setGender(res?.data?.gender)
-                setStartDate(JSON.parse(res?.data?.data_range?.start))
-                setEndDate(JSON.parse(res?.data?.data_range?.end))
+                setStartDate(JSON.parse(res?.data?.data_range)?.start)
+                setEndDate(JSON.parse(res?.data?.data_range)?.end)
             }else{
                 setError(res.data);
             }
