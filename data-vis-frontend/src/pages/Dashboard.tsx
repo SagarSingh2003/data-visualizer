@@ -21,7 +21,7 @@ import { age } from "../atoms/age";
 import { gender } from "../atoms/gender";
 import { askPermissionForStoringCookies } from "../atoms/askPermissionForStoringCookies";
 import axios from "axios";
-import { api } from "../constants/api";
+import api  from "../constants/api";
 import { chartData } from "../atoms/chartData";
 import { currUuid } from "../atoms/currUuid";
 
@@ -140,7 +140,7 @@ const Dashboard: React.FC = () => {
               date_range : getCookie("date_range")
             }
             console.log(data);
-             const res = await  axios.post(`${api}/share` , {
+             const res = await  api.post(`/share` , {
                   uuid : uuidv4(),
                   ...data
               } , {

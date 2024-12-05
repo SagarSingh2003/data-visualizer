@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import BarChart from "../ui/Components/BarChart";
 import LineChart from "../ui/Components/LineChart";
 import axios from "axios";
-import { api } from "../constants/api";
+import  api  from "../constants/api";
 import { useSetRecoilState } from "recoil";
 import { endDate, startDate } from "../atoms/dateRange";
 import { age } from "../atoms/age";
@@ -29,7 +29,7 @@ const Shared = () => {
     const getPrefData  = async () =>{
         
 
-            const res = await axios.get(api + `/share/${id}` , {
+            const res = await api.get(`/share/${id}` , {
                 withCredentials : true
             })
 
@@ -52,7 +52,7 @@ const Shared = () => {
                 }
             }else{
                 setError(res.data);
-                
+
             }
        
     }

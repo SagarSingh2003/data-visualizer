@@ -1,14 +1,12 @@
 
 import axios from "axios";
-import {api} from "../constants/api"
+import api from "../constants/api"
 
 export const getChartData = async () => {
 
     try{
         
-        const API = `${ api }/chartData`.trim()
-
-        const api_response = await axios.get(API , {
+        const api_response = await api.get('/chartData'.trim() , {
             withCredentials : true
         })
         

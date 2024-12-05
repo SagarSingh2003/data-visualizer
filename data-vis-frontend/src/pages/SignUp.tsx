@@ -2,7 +2,7 @@
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { api } from "../constants/api";
+import  api  from "../constants/api";
 
 const SignupForm = () => {
   const initialValues = {
@@ -27,7 +27,7 @@ const SignupForm = () => {
   const onSubmit = (values : any ) => {
     console.log("Form data", values);
 
-    axios.post(api + "/auth/signup" , {
+    api.post("/auth/signup" , {
         username : values.username,
         email : values.email,
         password : values.password
