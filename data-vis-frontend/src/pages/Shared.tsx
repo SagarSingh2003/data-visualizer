@@ -50,7 +50,7 @@ const Shared = () => {
             }
 
        }catch(err){
-            console.log(err);
+            console.log("error occured here" , err);
        }
             
             
