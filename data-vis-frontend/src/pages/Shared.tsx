@@ -7,11 +7,14 @@ import { useSetRecoilState } from "recoil";
 import { endDate, startDate } from "../atoms/dateRange";
 import { age } from "../atoms/age";
 import { gender } from "../atoms/gender";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { error } from "../atoms/error";
 
 const Shared = () => {
 
     const {id} = useParams();
+
+    const router= useNavigate();
 
     const setStartDate = useSetRecoilState(startDate)
 
@@ -21,16 +24,25 @@ const Shared = () => {
 
     const setGender = useSetRecoilState(gender)
 
+    const setError = useSetRecoilState(error)
+
     const getPrefData  = () =>{
         
         axios.get(api + `/share/${id}` , {
             withCredentials : true
         }).then((res) => {
             
-            setAge(res?.data?.age)
-            setGender(res?.data?.gender)
-            setStartDate(JSON.parse(res?.data?.data_range?.start))
-            setEndDate(JSON.parse(res?.data?.data_range?.end))
+            if(res.status === 401){
+                router('/signup')
+            }else if(res.status === 200){
+                console.log(res , "response");
+                setAge(res?.data?.age)
+                setGender(res?.data?.gender)
+                setStartDate(JSON.parse(res?.data?.data_range?.start))
+                setEndDate(JSON.parse(res?.data?.data_range?.end))
+            }else{
+                setError(error);
+            }
             
         })
     }
