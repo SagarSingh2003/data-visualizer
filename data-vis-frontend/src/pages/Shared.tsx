@@ -52,6 +52,7 @@ const Shared = () => {
                 }
             }else{
                 setError(res.data);
+                
             }
        
     }
