@@ -20,7 +20,6 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { age } from "../atoms/age";
 import { gender } from "../atoms/gender";
 import { askPermissionForStoringCookies } from "../atoms/askPermissionForStoringCookies";
-import axios from "axios";
 import api  from "../constants/api";
 import { chartData } from "../atoms/chartData";
 import { currUuid } from "../atoms/currUuid";

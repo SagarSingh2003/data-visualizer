@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import BarChart from "../ui/Components/BarChart";
 import LineChart from "../ui/Components/LineChart";
-import axios from "axios";
 import  api  from "../constants/api";
 import { useSetRecoilState } from "recoil";
 import { endDate, startDate } from "../atoms/dateRange";

@@ -1,5 +1,4 @@
 
-import axios from "axios";
 import api from "../constants/api"
 
 export const getChartData = async () => {
