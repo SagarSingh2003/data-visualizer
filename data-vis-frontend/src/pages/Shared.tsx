@@ -41,10 +41,15 @@ const Shared = () => {
                 navigate("/signup")
             }else if(res.status === 200){
                 console.log(res , "response");
-                setAge(res?.data?.age)
-                setGender(res?.data?.gender)
-                setStartDate(JSON.parse(res?.data?.data_range)?.start)
-                setEndDate(JSON.parse(res?.data?.data_range)?.end)
+                try{
+                    setAge(res?.data?.age)
+                    console.log(res?.data?.age)
+                    setGender(res?.data?.gender)
+                    setStartDate(JSON.parse(res?.data?.data_range)?.start)
+                    setEndDate(JSON.parse(res?.data?.data_range)?.end)
+                }catch(err){
+                    console.log(err)
+                }
             }else{
                 setError(res.data);
             }
