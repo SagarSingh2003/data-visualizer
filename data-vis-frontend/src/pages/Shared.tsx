@@ -11,6 +11,7 @@ import { error } from "../atoms/error";
 import moment from "moment";
 import Filter from "../ui/Components/Filters";
 import { selectedBar } from "../atoms/selectedBar";
+import { logout } from "../utils/sendAuth";
 
 const Shared = () => {
 
