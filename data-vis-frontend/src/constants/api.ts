@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const interceptor_api = axios.create({
-    baseURL: 'https://data-visualizer-khle.vercel.app',
+    baseURL: 'https://data-visualizer-zeta.vercel.app/',
     withCredentials: true,
 });
 
