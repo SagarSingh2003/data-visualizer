@@ -6,7 +6,7 @@ import authRoute from "./route/auth.js";
 import DatabaseService from "./utils/dbService.js";
 import ApiResponse from "./utils/ApiReponses.js";
 import cookieParser from "cookie-parser";
-import authMiddleware from "./middleware/auth.js";
+import authMiddleware, { allowOriginMiddleware } from "./middleware/auth.js";
 import shareRoute from "./route/shareRoute.js";
 import chartDataRoute from "./route/chartData.js";
 
@@ -36,6 +36,8 @@ app.use(express.json());
 
 
 app.use("/webhook", webhook);
+
+app.use(allowOriginMiddleware);
 
 app.get("/", (req, res) => {
   return new ApiResponse(res).successful();
