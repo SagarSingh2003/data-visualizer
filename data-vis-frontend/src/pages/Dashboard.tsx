@@ -25,8 +25,6 @@ import { Popup } from "../ui/Components/Popup";
 import { frontendApi } from "../constants/frontend-api";
 import { currUuid } from "../atoms/currUuid";
 import { popupOpen } from "../atoms/popupOpen";
-import { age } from "../atoms/age";
-import { gender } from "../atoms/gender";
 
 ChartJS.register(
   CategoryScale,
@@ -50,8 +48,7 @@ const Dashboard: React.FC = () => {
   }
 
   const currid = useRecoilValue(currUuid)
-  const setAge = useSetRecoilState(age)
-  const setGender = useSetRecoilState(gender)
+
   const [permissionForStoringCookies, setAskPermissionForStoringCookies] =
     useRecoilState<true | false | null>(askPermissionForStoringCookies);
 
