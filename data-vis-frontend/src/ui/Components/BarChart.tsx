@@ -16,7 +16,6 @@ import "react-date-range/dist/theme/default.css"; // Default theme
 import { chartData, filteredData } from "../../atoms/chartData";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { endDate, startDate } from "../../atoms/dateRange";
-import moment from "moment";
 import { gender } from "../../atoms/gender";
 import { age } from "../../atoms/age";
 import { selectedBar } from "../../atoms/selectedBar";
@@ -30,7 +29,6 @@ const Dashboard: React.FC = () => {
 
 
 
-
   const chartdata = useRecoilValue(chartData);
 
   if(!chartdata){
@@ -39,24 +37,18 @@ const Dashboard: React.FC = () => {
 
   console.log("chart data is : " ,chartdata);
 
-    const [startdate , setStartDate] = useRecoilState(startDate);
-    const [enddate , setEndDate] = useRecoilState(endDate);
+    const [startdate , __] = useRecoilState(startDate);
+    const [enddate , _] = useRecoilState(endDate);
     const Gender = useRecoilValue(gender);
     const [filtered , setFiltered] = useRecoilState(filteredData)
     const Age = useRecoilValue(age);
 
-   function calculateDefaultStartAndEndDate(){
 
-        setStartDate(moment(new Date(chartdata[0]?.day)))
-        setEndDate(moment(new Date(chartdata[chartdata?.length - 1]?.day)))
-        setFiltered(chartdata)
-    }
+    console.log("start date : ", startdate);
+    console.log("end date : " , enddate);
 
-  useEffect(() => {
-    if(chartdata?.length != 0){
-        calculateDefaultStartAndEndDate()
-    }
-  } , [])
+  console.log("this is age : " , Age);
+
 
   const [selectedbar, setSelectedBar] = useRecoilState<any>(selectedBar);
 
@@ -69,29 +61,59 @@ const Dashboard: React.FC = () => {
      F : 0
   }
 
+  useEffect(() => {
+
+    setFiltered(chartdata)
+  } , []);
+
+
+
+  console.log( "filter here 1 **********", filtered)
 
   useEffect(() => {
+
+    console.log('entering this useffect')
+    console.log("Gender" , Gender);
+    console.log("Age" , Age);
+
     if(Gender && !Age){
         
         const filtereddata = chartdata.filter((data : any) => {
-            return data.gender.trim() === Gender.trim()
+            return data.gender.trim() === Gender?.trim()
         })
 
         setFiltered(filtereddata);
+
+        console.log( "filter here 2 **********", filtereddata)
   }else if( Age && !Gender){
     
         const filtereddata = chartdata.filter((data : any) => {
-            return data.age.trim() === Age.trim()
+            return data.age.trim() === Age?.trim()
         })
 
         setFiltered(filtereddata)
+
+
+        console.log( "filter here 3 **********", filtereddata)
+
   }else if( Age && Gender){
 
     const filtereddata = chartdata?.filter((data : any) => {
-        return ((data.age.trim() === Age.trim()) && data.gender.trim() === Gender.trim()) 
+      
+      console.log("=--------------------")  
+      console.log(data?.age?.trim());
+        console.log(Age);
+        console.log(data?.gender?.trim());
+        console.log(Gender?.trim());
+        console.log("=--------------------")
+
+        return ((data?.age?.trim() === Age?.trim()) && data?.gender?.trim() === Gender?.trim()) 
     })
 
     setFiltered(filtereddata)
+
+
+
   }
 
 
@@ -114,6 +136,10 @@ const Dashboard: React.FC = () => {
 
         
   }
+
+
+
+  console.log( "filter here 5 **********", filtered)
 
   console.log(featureData);
   const  barData = [featureData["A"] , featureData["B"] , featureData["C"] , featureData["D"] , featureData["E"] , featureData["F"]];

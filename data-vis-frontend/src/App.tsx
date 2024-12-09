@@ -8,9 +8,8 @@ import { gender } from "./atoms/gender";
 import { age } from "./atoms/age";
 import { dateRange } from "./atoms/dateRange";
 import { askPermissionForStoringCookies } from "./atoms/askPermissionForStoringCookies";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue} from "recoil";
 import Shared from "./pages/Shared";
-
 
 function App() {
 

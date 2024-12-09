@@ -1,0 +1,1 @@
+export const frontendApi = "https://data-visualizer-nhkw.vercel.app"

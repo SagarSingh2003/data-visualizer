@@ -1,0 +1,20 @@
+.charts{
+    display: flex;
+    flex-direction: row;
+}
+
+.charts>div{
+    min-width: 45%;
+}
+
+canvas#chart{
+    height: 100% !important;
+}
+
+@media (max-width: 1067px) {
+    .charts{
+        display : flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}

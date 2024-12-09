@@ -1,0 +1,16 @@
+.filters{
+    display: flex;
+    flex-direction: row !important;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    min-width: 50%;
+    padding: 20px;
+}
+
+
+@media(max-width: 449px){
+    .filters{
+        flex-direction: column !important;
+    }
+}

@@ -2,12 +2,15 @@ import { useEffect } from "react";
 import BarChart from "../ui/Components/BarChart";
 import LineChart from "../ui/Components/LineChart";
 import  api  from "../constants/api";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue} from "recoil";
 import { endDate, startDate } from "../atoms/dateRange";
 import { age } from "../atoms/age";
 import { gender } from "../atoms/gender";
 import { useNavigate, useParams } from "react-router-dom";
 import { error } from "../atoms/error";
+import moment from "moment";
+import Filter from "../ui/Components/Filters";
+import { selectedBar } from "../atoms/selectedBar";
 
 const Shared = () => {
 
@@ -15,37 +18,53 @@ const Shared = () => {
 
     const navigate= useNavigate();
 
-    const setStartDate = useSetRecoilState(startDate)
+    const [_ , setStartDate] = useRecoilState(startDate)
 
-    const setEndDate = useSetRecoilState(endDate)
+    const [__ , setEndDate] = useRecoilState(endDate)
 
-    const setAge = useSetRecoilState(age)
+    const [___ , setAge] = useRecoilState(age)
 
-    const setGender = useSetRecoilState(gender)
+    const [____, setGender] = useRecoilState(gender)
 
-    const setError = useSetRecoilState(error)
+    const [_____ , setError] = useRecoilState(error)
+
+
+
+   const selectedbar = useRecoilValue(selectedBar)
+
+    
 
     const getPrefData  = async () =>{
         
 
-            const res = await api.get(`/share/${id}` , {
+            try{
+
+              const res = await api.get(`/share/${id}` , {
                 withCredentials : true
-            })
+              })
 
 
-            console.log("responseeell")
-            console.log("response*******************", res);
-            console.log("status " , res.status);
             if(res.status === 401){
                 navigate("/signup")
             }else if(res.status === 200){
-                console.log(res , "response");
+
                 try{
-                    setAge(res?.data?.data?.age)
-                    console.log(res?.data?.data?.age)
-                    setGender(res?.data?.data?.gender)
-                    setStartDate(JSON.parse(res?.data?.data?.data_range)?.start)
-                    setEndDate(JSON.parse(res?.data?.data?.data_range)?.end)
+                    if(res?.data?.data.age){
+
+                    setAge(JSON.parse(res?.data?.data?.age))
+
+                    
+                    }
+                    
+                    if(res?.data?.data?.gender){
+
+                        setGender(res?.data?.data?.gender)
+                    }
+                    
+                    if(res?.data?.data?.date_range?.trim()){
+                        setStartDate(moment(JSON.parse(res?.data?.data?.date_range)?.start))
+                        setEndDate(moment(JSON.parse(res?.data?.data?.date_range)?.end))    
+                    }
                 }catch(err){
                     console.log(err)
                 }
@@ -53,6 +72,11 @@ const Shared = () => {
                 setError(res.data);
 
             }
+
+          }catch(err){
+              console.log(err);
+              navigate("/signup")
+          }
        
     }
 
@@ -63,14 +87,22 @@ const Shared = () => {
 
   return (
     <div>
-      <div>
-        <BarChart />
+      <div style={{ display : "flex" , width : "100%" , alignItems : "center" , justifyContent : "center"}}>
+            <button >
+                Logout
+            </button>
+          <Filter />
       </div>
+      <section className="charts">
+          <div>
+            <BarChart />
+          </div>
 
-      <div style={{ padding: "20px" }}>
-        <h2>Line Chart Example</h2>
-        <LineChart title="Time Trend Analysis" />
-      </div>
+          <div style={{ padding: "20px" }}>
+            <h2>Time Trend Analaysis of {selectedbar}</h2>
+            <LineChart title="Time Trend Analysis" />
+          </div>
+      </section>
     </div>
   );
 };

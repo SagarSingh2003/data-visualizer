@@ -1,5 +1,9 @@
 @import "./styles/Reset.css";
 @import "./styles/Auth.css";
+@import "./styles/Charts.css";
+@import "./styles/Filters.css";
+@import "./styles/Header.css";
+@import "./styles/Popup.css";
 
   .flex-row{
         display: flex;
