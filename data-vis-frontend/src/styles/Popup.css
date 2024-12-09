@@ -114,6 +114,7 @@
 
   .popup-cookies>div>h3{
     font-size: 14px;
+    z-index: 10000;
   }
 
   .popup-cookies>div>button{
@@ -123,6 +124,7 @@
 
 
   .popup-cookies>div>button:hover{
+
     background-color: #e5e7eb;
     color: black !important;
   }

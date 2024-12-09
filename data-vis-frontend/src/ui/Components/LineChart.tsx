@@ -73,7 +73,7 @@ const LineChart: React.FC<LineChartProps> = () => {
       zoom: {
         pan: {
           enabled: true,
-          mode: "x", // Allows panning horizontally
+          mode: "x",
         },
         zoom: {
           wheel: {
@@ -82,7 +82,7 @@ const LineChart: React.FC<LineChartProps> = () => {
           pinch: {
             enabled: true,
           },
-          mode: "x", // Allows zooming horizontally
+          mode: "x",
         },
       },
     },
@@ -102,19 +102,19 @@ const LineChart: React.FC<LineChartProps> = () => {
         },
       },
     },
-    onClick: () => {}, // Placeholder to avoid double-click conflicts
+    onClick: () => {},
   };
 
   const handleDoubleClick = () => {
     const chartInstance = ChartJS.getChart("chart")!;
-    chartInstance.resetZoom(); // Reset zoom on double-click
+    chartInstance.resetZoom();
   };
 
   return (
     <div
       style={{ width: "100%", margin: "20px auto" }}
       className="linechart"
-      onDoubleClick={handleDoubleClick} // Trigger zoom reset
+      onDoubleClick={handleDoubleClick}
     >
       <Line id="chart" data={lineChartData} options={lineChartOptions as any} />
     </div>
