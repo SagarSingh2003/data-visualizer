@@ -25,6 +25,6 @@ export const getChartData = async () => {
 
         console.log("Error occured in get_Message_Body api *****");
         console.log(err);
-        return null;
+        return null
     }
 }
