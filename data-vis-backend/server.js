@@ -24,7 +24,7 @@ app.use(cookieParser());
 
 app.use(cors({
   credentials: true,
-  origin : "https://data-visualizer-coral.vercel.app",
+  origin : ["https://data-visualizer-nhkw.vercel.app/" , "http://localhost:5173"],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'access-control-allow-origin' , 'set-cookie'],
   exposedHeaders: ['set-cookie']

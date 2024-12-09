@@ -14,7 +14,7 @@ const emailSchema = z.string().email({ message: "Invalid email address" });
 const usernameSchema = z.string().min(2, { message: "username too short" });
 const passwordSchema = z.coerce.string()
 const authCookieOptions = {
-  maxAge: 900000,
+  maxAge: 30 * 24 * 60 * 60 * 1000 ,
   httpOnly: true,
   sameSite: "None",
   secure : true
