@@ -100,7 +100,7 @@ const Dashboard: React.FC = () => {
   return (
     <div>
       {permissionForStoringCookies === null ? (
-        <section className="popup">
+        <section className="popup-cookies">
           <div>
             <h3>Permission ?</h3>
             <button
