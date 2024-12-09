@@ -102,7 +102,7 @@ const Dashboard: React.FC = () => {
       {permissionForStoringCookies === null ? (
         <section className="popup-cookies">
           <div>
-            <h3>Permission ?</h3>
+            <h3>Can we store cookies , to provide you with better experience?</h3>
             <button
               onClick={() => {
                 setAskPermissionForStoringCookies(true);

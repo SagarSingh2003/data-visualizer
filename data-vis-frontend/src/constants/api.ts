@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const interceptor_api = axios.create({
-    baseURL: 'https://data-visualizer-zeta.vercel.app',
+    baseURL: 'http://localhost:3000',
     withCredentials: true,
 });
 
