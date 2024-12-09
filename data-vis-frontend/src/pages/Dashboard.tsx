@@ -98,24 +98,6 @@ const Dashboard: React.FC = () => {
     }
   }, []);
 
-  useEffect(() => {
-    const Age = getCookie("age");
-    const Gender = getCookie("gender");
-    const date_range = getCookie("data_range");
-
-    if(age){
-        setAge(Age as any)
-    }
-
-    if(gender){
-        setGender(Gender as any)
-    }
-
-    if(date_range){
-        setStartDate(moment(JSON.parse(date_range)?.start))
-        setEndDate(moment(JSON.parse(date_range)?.end))
-    }
-  } , [])
 
   console.log("gender cookie: ", `gender=${getCookie("gender")};`);
 
