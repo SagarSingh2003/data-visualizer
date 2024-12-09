@@ -101,6 +101,8 @@
     background-color: black;
     color: white;
     animation: fade-in 0.3s ease-in-out;
+
+    z-index: 10000;
   }
 
   .popup-cookies>div{
@@ -114,12 +116,13 @@
 
   .popup-cookies>div>h3{
     font-size: 14px;
-    z-index: 10000;
   }
 
   .popup-cookies>div>button{
     background-color: white;
     color: black !important;
+
+    z-index: 10000;
   }
 
 
