@@ -158,7 +158,7 @@ const authController = {
     }
   },
   signOut: async (req, res) => {
-    const email = req.body.email;
+    const email = req.useData.email;
 
     //check for token
 

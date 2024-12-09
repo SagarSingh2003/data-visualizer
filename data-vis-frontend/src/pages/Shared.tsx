@@ -88,7 +88,12 @@ const Shared = () => {
   return (
     <div>
       <div style={{ display : "flex" , width : "100%" , alignItems : "center" , justifyContent : "center"}}>
-            <button >
+            <button 
+                onClick = {() => {
+                    logout()
+                    navigate("/")
+                }}
+            >
                 Logout
             </button>
           <Filter />
