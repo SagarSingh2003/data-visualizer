@@ -25,6 +25,8 @@ import { Popup } from "../ui/Components/Popup";
 import { frontendApi } from "../constants/frontend-api";
 import { currUuid } from "../atoms/currUuid";
 import { popupOpen } from "../atoms/popupOpen";
+import { age } from "../atoms/age";
+import { gender } from "../atoms/gender";
 
 ChartJS.register(
   CategoryScale,
@@ -48,7 +50,8 @@ const Dashboard: React.FC = () => {
   }
 
   const currid = useRecoilValue(currUuid)
-
+  const setAge = useSetRecoilState(age)
+  const setGender = useSetRecoilState(gender)
   const [permissionForStoringCookies, setAskPermissionForStoringCookies] =
     useRecoilState<true | false | null>(askPermissionForStoringCookies);
 
@@ -57,7 +60,7 @@ const Dashboard: React.FC = () => {
   const setFiltered = useSetRecoilState(filteredData);
 
   function calculateDefaultStartAndEndDate() {
-    console.log("coming here...");
+
     setStartDate(moment(new Date(chartdata[0]?.day)));
     setEndDate(moment(new Date(chartdata[chartdata?.length - 1]?.day)));
     setFiltered(chartdata);
@@ -94,6 +97,25 @@ const Dashboard: React.FC = () => {
       setAskPermissionForStoringCookies(Boolean(cookieVal));
     }
   }, []);
+
+  useEffect(() => {
+    const Age = getCookie("age");
+    const Gender = getCookie("gender");
+    const date_range = getCookie("data_range");
+
+    if(age){
+        setAge(Age as any)
+    }
+
+    if(gender){
+        setGender(Gender as any)
+    }
+
+    if(date_range){
+        setStartDate(moment(JSON.parse(date_range)?.start))
+        setEndDate(moment(JSON.parse(date_range)?.end))
+    }
+  } , [])
 
   console.log("gender cookie: ", `gender=${getCookie("gender")};`);
 
